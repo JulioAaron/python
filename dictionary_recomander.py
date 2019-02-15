@@ -5,8 +5,12 @@ data = json.load(open("data.json"))
 
 def translate(w):
     w = w.lower()
-    if w in data.keys():
+    if w in data:
         return data[w]
+    elif w.title() in data:
+        return data[w.title()]
+    elif w.upper() in data:
+        return data[w.upper()]
     elif len(get_close_matches(w, data.keys()))>0:
         yn = input("Quizo de decir %s? escriba Y para si, o N para no: " % get_close_matches(w, data.keys())[0])
         if yn=='Y' or yn=='y':
@@ -19,4 +23,10 @@ def translate(w):
         return "La palabra no existe, revise, intente nuevamente"
 
 word = input("Ingrese una palabra: ")
-print(translate(word))
+output=translate(word)
+
+if type(output)==list:
+    for item in output:
+        print(item)
+else:
+    print(output)
