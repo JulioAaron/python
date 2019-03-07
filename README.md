@@ -1,2 +1,2 @@
-# python-udemy
-Learning python on Udemy
+# python
+Learning python
