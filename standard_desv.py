@@ -6,8 +6,9 @@ suma = 0
 for item in mylista:
     suma = suma + item**2
 
-desv = (suma/len(mylista))-(promedio**2)
-desv =  desv**0.5
+varianza = (suma/len(mylista))-(promedio**2)
+desv =  varianza**0.5
 
+print("%0.2f" % varianza)
 print("%0.2f" % desv)
 
